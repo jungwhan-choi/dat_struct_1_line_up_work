@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="line_up_recursion.c">
+    <ClCompile Include="Hanoi_Recursion.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
