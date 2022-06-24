@@ -28,7 +28,7 @@ void read_and_make_graph() {
 			if (v == '\n' || v==EOF) {
 				break;
 			}
-			printf("(%d,%d):%.1lf\n", fvt, next_vt, value);
+			printf("(%d,%d):%.1lf\n", vt, next_vt, value);
 			
 		} while (1);
 		
