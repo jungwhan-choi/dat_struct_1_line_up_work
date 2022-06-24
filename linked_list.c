@@ -31,9 +31,13 @@ int delete(linkedlist* first, int x);
 void cut_string(char* line, int* i, char* seg);
 int digits_only(char* str);
 void reverse(linkedlist* first);
-
+void push(linkedlist* s, listdata item) {
+    linkedlist* temp;
+    temp = (listpointer)malloc(sizeof(linkedlist));
+    s->head = temp;
+}
 int main() {
-    
+    linkedlist* s;
     linkedlist first; //헤드 생성
   
     first.head = NULL;
@@ -182,8 +186,8 @@ int insert(linkedlist* first, listpointer pre, listdata item) {
             temp->link = pre->link;
             pre->link = temp;
         }
-        else if (!(*first).head) {      //pre가 널일 시, 즉 맨 첫 노드일 경우
-            temp->link = (*first).head;
+        else  {      //pre가 널일 시, 즉 맨 첫 노드일 경우
+            temp->link =NULL;
             (*first).head = temp;
         }
     }

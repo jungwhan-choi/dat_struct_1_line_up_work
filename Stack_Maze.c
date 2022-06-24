@@ -24,7 +24,7 @@ typedef struct listnode {
 offsets move[Max_dir] = { {-1,0},{-1,1},{0,1},{1,1},{1,0},{1,-1},{0,-1},{-1,-1} };
 int maze[m + 2][p + 2];
 int mark[m + 2][p + 2];
-void makenode( listpointer* top, ty_element item ) {
+void makenode(listpointer* top, ty_element item) {
 	listpointer new_node = (listpointer)malloc(sizeof(listnode));
 	new_node->data = item;
 	if (*top == NULL) {
@@ -33,25 +33,21 @@ void makenode( listpointer* top, ty_element item ) {
 	else {
 		new_node->link = *top;
 	}
-	
+
 	*top = new_node;
 	mark[item.row][item.col] = 1;
 	mark[item.row][item.col];
 }
 void backtracking(listpointer* top) {
-	
+
 	*top = (*top)->link;
-}
-void example(listpointer* top) {
-	
 }
 int path(int sy, int sx, int dy, int dx) {
 	listpointer top = NULL;
-	
 	int i, j, row, col, nextRow, nextCol, dir;		//i,j=반복문 재료, row,col=,nextRow,nextCol=다음으로 향할곳 +or-,dir=방향저장
 	int found, backtrack = 0, len = 0;				//found=찾았을시에 1반환,backtrack=백트래킹 횟수,len=노드 길이
-	int Exit_Row = dy, Exit_Col = dx;				
-	ty_element position,next_position;
+	int Exit_Row = dy, Exit_Col = dx;
+	ty_element position, next_position;
 	if (maze[sy][sx] == 1 || maze[dy][dx] == 1) {
 		printf("입력오류:출발점이나 목표점이 막힌 셀입니다.\n");
 		return 0;
@@ -72,7 +68,7 @@ int path(int sy, int sx, int dy, int dx) {
 		case 0:
 			nextRow = move[top->data.dir].vert;
 			nextCol = move[top->data.dir].horiz;
-			if (maze[top->data.row + nextRow][top->data.col + nextCol] == 1|| mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
+			if (maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
 				top->data.dir++;
 				continue;
 			}
@@ -90,7 +86,7 @@ int path(int sy, int sx, int dy, int dx) {
 		case 2:
 			nextRow = move[top->data.dir].vert;
 			nextCol = move[top->data.dir].horiz;
-			if(maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
+			if (maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
 				top->data.dir++;
 				continue;
 			}
@@ -99,7 +95,7 @@ int path(int sy, int sx, int dy, int dx) {
 		case 3:
 			nextRow = move[top->data.dir].vert;
 			nextCol = move[top->data.dir].horiz;
-			if(maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
+			if (maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
 				top->data.dir++;
 				continue;
 			}
@@ -108,7 +104,7 @@ int path(int sy, int sx, int dy, int dx) {
 		case 4:
 			nextRow = move[top->data.dir].vert;
 			nextCol = move[top->data.dir].horiz;
-			if(maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
+			if (maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
 				top->data.dir++;
 				continue;
 			}
@@ -117,7 +113,7 @@ int path(int sy, int sx, int dy, int dx) {
 		case 5:
 			nextRow = move[top->data.dir].vert;
 			nextCol = move[top->data.dir].horiz;
-			if(maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
+			if (maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
 				top->data.dir++;
 				continue;
 			}
@@ -126,7 +122,7 @@ int path(int sy, int sx, int dy, int dx) {
 		case 6:
 			nextRow = move[top->data.dir].vert;
 			nextCol = move[top->data.dir].horiz;
-			if(maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
+			if (maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
 				top->data.dir++;
 				continue;
 			}
@@ -135,7 +131,7 @@ int path(int sy, int sx, int dy, int dx) {
 		case 7:
 			nextRow = move[top->data.dir].vert;
 			nextCol = move[top->data.dir].horiz;
-			if(maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
+			if (maze[top->data.row + nextRow][top->data.col + nextCol] == 1 || mark[top->data.row + nextRow][top->data.col + nextCol] == 1) {
 				top->data.dir++;
 				continue;
 			}
@@ -159,12 +155,12 @@ int path(int sy, int sx, int dy, int dx) {
 		else {
 			continue;
 		}
-		
+
 		if (top->data.row == Exit_Row && top->data.col == Exit_Col) {
-			listpointer temp2=NULL;
+			listpointer temp2 = NULL;
 			listpointer temp3;
 			for (int i = 0; i < len; i++) {
-				listpointer temp1=top;
+				listpointer temp1 = top;
 				temp3 = temp2;
 				while (1) {
 					temp2 = temp1;
@@ -174,11 +170,11 @@ int path(int sy, int sx, int dy, int dx) {
 						break;
 				}
 				printf("[%d,%d]\t", temp2->data.row, temp2->data.col);
-				if ((i+1) % 6 == 0)
+				if ((i + 1) % 6 == 0)
 					printf("\n");
 			}
-			
-			
+
+
 			printf("finished\n길이=%d, 백트래킹 수=%d\n", len, backtrack);
 			found = 0;
 			return found;
@@ -194,7 +190,7 @@ int main(void) {
 			for (int j = 0; j < 28; j++) {
 				if (j % 2 == 0) {
 					fscanf(fp, "%d", &maze[i][j / 2]);
-					
+
 				}
 			}
 		}
@@ -203,7 +199,7 @@ int main(void) {
 			printf("출발점, 목표점은?(4개의 정수; 종료는 Control+D Enter): ");
 			int res = scanf("%d%d%d%d", &starty, &startx, &endy, &endx);
 			if (res != 4) return 0;
-			
+
 			done = path(starty, startx, endy, endx);
 
 		}

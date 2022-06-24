@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include<stdlib.h>
 void swap(int* list_i, int* list_min) {
 	int temp;
 	temp = *list_i;
@@ -19,9 +20,16 @@ void sort(int list[], int n) {
 	}
 }
 int main(void) {
-	int a[10] = { 5,9,16,4,78,34,89,15,90,35 };
+	int a[10];
+	srand(time(NULL));					//random seed
+	for (int i = 0; i < 10; i++) {
+		
+		a[i] = rand() % 1000;
+	}
 	sort(a, 10);
 	for (int i = 0; i < 10; i++) {
 		printf("%d\n", a[i]);
 	}
+	char a1[10]="¾È³ç", b1[10]="°¨±â";
+	printf("%d", strcmp(a1, b1));
 }
